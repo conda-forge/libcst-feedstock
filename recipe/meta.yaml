@@ -1,18 +1,18 @@
 {% set name = "libcst" %}
-{% set version = "0.3.4" %}
+{% set version = "0.3.5" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 449bf67813e4ced937edb9811355e2734ac709b4f36416889c6e169a03b96362
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: c2a7cd82fd1cb5abb32f8e97fd936977a4fa04864c1d94adf513653a7c6209a4
 
 build:
-  number: 1
-  skip: True  # [py < 36]
-  script: "{{ PYTHON }} -m pip install . -vv"
+  number: 0
+  skip: true  # [py < 36]
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -61,11 +61,11 @@ test:
     - libcst.tests
 
 about:
-  home: "https://github.com/Instagram/LibCST"
+  home: https://github.com/Instagram/LibCST
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: "A concrete syntax tree with AST-like properties for Python 3.5, 3.6, 3.7 and 3.8 programs."
+  summary: A concrete syntax tree with AST-like properties for Python 3.5, 3.6, 3.7 and 3.8 programs.
   doc_url: https://libcst.readthedocs.io/
   dev_url: https://github.com/Instagram/LibCST
 
