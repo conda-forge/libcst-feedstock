@@ -20,13 +20,13 @@ requirements:
     - pip
     - python
     - pyyaml >=5.2
-    - typing_extensions >=3.7.2
+    - typing_extensions >=3.7.4.2
     - typing_inspect >=0.4.0
   run:
     - dataclasses   # [py < 37]
     - python
     - pyyaml >=5.2
-    - typing_extensions >=3.7.2
+    - typing_extensions >=3.7.4.2
     - typing_inspect >=0.4.0
 
 test:
