@@ -5,11 +5,13 @@ Home: https://github.com/Instagram/LibCST
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libcst-feedstock/blob/master/LICENSE.txt)
 
 Summary: A concrete syntax tree with AST-like properties for Python 3.5, 3.6, 3.7 and 3.8 programs.
 
+Development: https://github.com/Instagram/LibCST
 
+Documentation: https://libcst.readthedocs.io/
 
 Current build status
 ====================
