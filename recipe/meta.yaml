@@ -1,5 +1,5 @@
 {% set name = "libcst" %}
-{% set version = "0.3.20" %}
+{% set version = "0.3.21" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9d50d4eab28b570e254cc63287ce3009b945be4114c7a29662b67204cfc18060
+  sha256: 4302a8f09cd9e5ab5962f8e126d032bba98541893dd38cce6b4770969fed059d
 
 build:
   number: 0
