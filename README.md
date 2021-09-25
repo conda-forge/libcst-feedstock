@@ -238,4 +238,5 @@ Feedstock Maintainers
 
 * [@bollwyvl](https://github.com/bollwyvl/)
 * [@nehaljwani](https://github.com/nehaljwani/)
+* [@xylar](https://github.com/xylar/)
 
