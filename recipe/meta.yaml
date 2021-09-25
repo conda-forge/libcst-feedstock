@@ -10,9 +10,12 @@ source:
   sha256: 4302a8f09cd9e5ab5962f8e126d032bba98541893dd38cce6b4770969fed059d
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py < 36]
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}    # [unix]
+    - set SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}    # [win]
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -20,6 +23,7 @@ requirements:
     - pip
     - python
     - pyyaml >=5.2
+    - setuptools_scm
     - typing_extensions >=3.7.4.2
     - typing_inspect >=0.4.0
   run:
@@ -30,6 +34,10 @@ requirements:
     - typing_inspect >=0.4.0
 
 test:
+  requires:
+    - pip
+  commands:
+    - pip check
   imports:
     - libcst
     - libcst._nodes
@@ -73,3 +81,4 @@ extra:
   recipe-maintainers:
     - nehaljwani
     - bollwyvl
+    - xylar
