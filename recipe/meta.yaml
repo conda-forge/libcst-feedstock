@@ -10,7 +10,7 @@ source:
   sha256: 4302a8f09cd9e5ab5962f8e126d032bba98541893dd38cce6b4770969fed059d
 
 build:
-  number: 1
+  number: 2
   skip: true  # [py < 36]
   script:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}    # [unix]
