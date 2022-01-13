@@ -26,7 +26,7 @@ requirements:
     - pip
     - python
     - pyyaml >=5.2
-    - setuptools_rust
+    - setuptools-rust
     - setuptools_scm
     - typing_extensions >=3.7.4.2
     - typing_inspect >=0.4.0
