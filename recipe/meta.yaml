@@ -7,6 +7,8 @@ package:
 source:
   url: https://pypi.io/packages/source/l/libcst/libcst-{{ version }}.tar.gz
   sha256: 961ab38c0ef318c384a287f1e4f877bb61ce93945f352b14b5dbbe7a317882b1
+  patches:
+    - 0001-Add-headerpad_max_install_names-to-linker-arguments.patch
 
 build:
   number: 0
