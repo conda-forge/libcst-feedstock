@@ -25,7 +25,6 @@ requirements:
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
   host:
-    - dataclasses >=0.6.0  # [py < 37]
     - pip
     - python
     - pyyaml >=5.2
@@ -34,7 +33,6 @@ requirements:
     - typing_extensions >=3.7.4.2
     - typing_inspect >=0.4.0
   run:
-    - dataclasses >=0.6.0  # [py < 37]
     - python
     - pyyaml >=5.2
     - typing_extensions >=3.7.4.2
@@ -82,7 +80,7 @@ about:
   license_file:
     - LICENSE
     - native/libcst/THIRDPARTY.yml
-  summary: A concrete syntax tree with AST-like properties for Python 3.5, 3.6, 3.7 and 3.8 programs.
+  summary: A Concrete Syntax Tree (CST) parser and serializer library for Python
   doc_url: https://libcst.readthedocs.io/
   dev_url: https://github.com/Instagram/LibCST
 
