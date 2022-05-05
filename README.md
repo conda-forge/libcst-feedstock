@@ -7,7 +7,7 @@ Package license: MIT
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libcst-feedstock/blob/main/LICENSE.txt)
 
-Summary: A concrete syntax tree with AST-like properties for Python 3.5, 3.6, 3.7 and 3.8 programs.
+Summary: A Concrete Syntax Tree (CST) parser and serializer library for Python
 
 Development: https://github.com/Instagram/LibCST
 
