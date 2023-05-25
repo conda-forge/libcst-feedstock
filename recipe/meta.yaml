@@ -1,4 +1,4 @@
-{% set version = "0.4.9" %}
+{% set version = "0.4.10" %}
 
 package:
   name: libcst
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/l/libcst/libcst-{{ version }}.tar.gz
-  sha256: 01786c403348f76f274dbaf3888ae237ffb73e6ed6973e65eba5c1fc389861dd
+  sha256: b98a829d96e8b209fb761b00cd1bacc27c70eae77d00e57976e5ae2c718c3f81
   patches:
     - 0001-Add-headerpad_max_install_names-to-linker-arguments.patch
 
