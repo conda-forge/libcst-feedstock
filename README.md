@@ -1,11 +1,11 @@
-About libcst
-============
+About libcst-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libcst-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/Instagram/LibCST
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libcst-feedstock/blob/main/LICENSE.txt)
 
 Summary: A Concrete Syntax Tree (CST) parser and serializer library for Python
 
