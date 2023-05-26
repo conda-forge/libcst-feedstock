@@ -26,8 +26,8 @@ requirements:
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
   host:
-    - pip
     - python
+    - pip
     - setuptools-rust
     - setuptools_scm
     - typing_extensions >=3.7.4.2
