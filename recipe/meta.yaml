@@ -1,5 +1,5 @@
 {% set name = "libcst" %}
-{% set version = "0.4.10" %}
+{% set version = "1.0.0" %}
 
 package:
   name: libcst
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/libcst-{{ version }}.tar.gz
-  sha256: b98a829d96e8b209fb761b00cd1bacc27c70eae77d00e57976e5ae2c718c3f81
+  sha256: aaf3471c11a7dfc76c46d0b80e64bde5d066d88393fe14b79bcaeb6753744bae
   patches:
     - 0001-Add-headerpad_max_install_names-to-linker-arguments.patch
 
@@ -26,8 +26,8 @@ requirements:
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
   host:
-    - pip
     - python
+    - pip
     - setuptools-rust
     - setuptools_scm
     - typing_extensions >=3.7.4.2
