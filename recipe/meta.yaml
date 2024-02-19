@@ -1,5 +1,5 @@
 {% set name = "libcst" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 package:
   name: libcst
@@ -7,12 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/libcst-{{ version }}.tar.gz
-  sha256: 0acbacb9a170455701845b7e940e2d7b9519db35a86768d86330a0b0deae1086
+  sha256: 71dd69fff76e7edaf8fae0f63ffcdbf5016e8cd83165b1d0688d6856aa48186a
   patches:
     - 0001-Add-headerpad_max_install_names-to-linker-arguments.patch
 
 build:
   number: 0
+  skip: true  # [py<39]
   script:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}    # [unix]
     - set SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}    # [win]
