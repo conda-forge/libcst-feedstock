@@ -30,6 +30,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
     - setuptools-rust
     - setuptools_scm
     - typing_extensions >=3.7.4.2
