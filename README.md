@@ -7,7 +7,7 @@ Home: https://github.com/Instagram/LibCST
 
 Package license: MIT
 
-Summary: A Concrete Syntax Tree (CST) parser and serializer library for Python
+Summary: A concrete syntax tree with AST-like properties for Python 3.0 through 3.13 programs.
 
 Development: https://github.com/Instagram/LibCST
 
