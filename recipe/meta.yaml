@@ -1,18 +1,17 @@
-{% set name = "libcst" %}
-{% set version = "1.4.0" %}
+{% set version = "1.5.0" %}
 
 package:
   name: libcst
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/libcst-{{ version }}.tar.gz
-  sha256: 449e0b16604f054fa7f27c3ffe86ea7ef6c409836fe68fe4e752a1894175db00
+  url: https://pypi.io/packages/source/l/libcst/libcst-{{ version }}.tar.gz
+  sha256: 8478abf21ae3861a073e898d80b822bd56e578886331b33129ba77fec05b8c24
   patches:
     - 0001-Add-headerpad_max_install_names-to-linker-arguments.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<39]
   script:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}    # [unix]
@@ -84,7 +83,7 @@ about:
   license_file:
     - LICENSE
     - native/libcst/THIRDPARTY.yml
-  summary: A Concrete Syntax Tree (CST) parser and serializer library for Python
+  summary: A concrete syntax tree with AST-like properties for Python 3.0 through 3.13 programs.
   doc_url: https://libcst.readthedocs.io/
   dev_url: https://github.com/Instagram/LibCST
 
