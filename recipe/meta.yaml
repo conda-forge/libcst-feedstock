@@ -5,17 +5,16 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/l/libcst/libcst-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/l/libcst/libcst-{{ version }}.tar.gz
   sha256: 71cb294db84df9e410208009c732628e920111683c2f2b2e0c5b71b98464f365
   patches:
     - 0001-Add-headerpad_max_install_names-to-linker-arguments.patch
 
 build:
   number: 0
-  skip: true  # [py<39]
+  script_env:
+    - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script:
-    - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}    # [unix]
-    - set SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}    # [win]
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     - cd native/libcst && cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
 
