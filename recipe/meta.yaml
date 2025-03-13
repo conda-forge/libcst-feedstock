@@ -1,4 +1,4 @@
-{% set version = "1.6.0" %}
+{% set version = "1.7.0" %}
 
 package:
   name: libcst
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/l/libcst/libcst-{{ version }}.tar.gz
-  sha256: e80ecdbe3fa43b3793cae8fa0b07a985bd9a693edbe6e9d076f5422ecadbf0db
+  sha256: a63f44ffa81292f183656234c7f2848653ff45c17d867db83c9335119e28aafa
   patches:
     - 0001-Add-headerpad_max_install_names-to-linker-arguments.patch
 
@@ -34,13 +34,8 @@ requirements:
     - setuptools
     - setuptools-rust
     - setuptools_scm
-    - typing_extensions >=3.7.4.2
-    - typing_inspect >=0.4.0
-    - pyyaml >=5.2
   run:
     - python
-    - typing_extensions >=3.7.4.2
-    - typing_inspect >=0.4.0
     - pyyaml >=5.2
 
 test:
