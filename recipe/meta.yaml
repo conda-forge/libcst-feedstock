@@ -34,13 +34,8 @@ requirements:
     - setuptools
     - setuptools-rust
     - setuptools_scm
-    - typing_extensions >=3.7.4.2
-    - typing_inspect >=0.4.0
-    - pyyaml >=5.2
   run:
     - python
-    - typing_extensions >=3.7.4.2
-    - typing_inspect >=0.4.0
     - pyyaml >=5.2
 
 test:
