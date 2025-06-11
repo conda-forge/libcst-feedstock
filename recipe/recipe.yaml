@@ -20,11 +20,15 @@ build:
     env:
       SETUPTOOLS_SCM_PRETEND_VERSION: ${{ version }}
     content:
-      - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation ---disable-pip-verrsion-check
-      - cd native/libcst && cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+      - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+      - cd native/libcst
+      - cargo-bundle-licenses --format=yaml --output=THIRDPARTY.yml
 
 requirements:
   build:
+    - ${{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+    - cargo-bundle-licenses
     - if: build_platform != target_platform
       then:
         - python
@@ -32,9 +36,6 @@ requirements:
         - setuptools
         - setuptools-rust
         - setuptools-scm
-    - ${{ compiler('rust') }}
-    - ${{ stdlib('c') }}
-    - cargo-bundle-licenses
   host:
     - python
     - pip
@@ -46,6 +47,8 @@ requirements:
     - if: match(python, ">=3.13")
       then: pyyaml-ft >=8.0.0
       else: pyyaml >=5.2
+    - if: match(python, "<3.10")
+      then: typing_extensions
 
 tests:
   - python:
