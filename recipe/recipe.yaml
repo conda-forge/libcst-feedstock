@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.8.4"
+  version: "1.8.5"
 
 package:
   name: libcst
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/l/libcst/libcst-${{ version }}.tar.gz
-  sha256: f0f105d32c49baf712df2be360d496de67a2375bcf4e9707e643b7efc2f9a55a
+  sha256: e72e1816eed63f530668e93a4c22ff1cf8b91ddce0ec53e597d3f6c53e103ec7
   patches:
     - 0001-Add-headerpad_max_install_names-to-linker-arguments.patch
 
