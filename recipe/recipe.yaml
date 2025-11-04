@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.8.5"
+  version: "1.8.6"
 
 package:
   name: libcst
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/l/libcst/libcst-${{ version }}.tar.gz
-  sha256: e72e1816eed63f530668e93a4c22ff1cf8b91ddce0ec53e597d3f6c53e103ec7
+  sha256: f729c37c9317126da9475bdd06a7208eb52fcbd180a6341648b45a56b4ba708b
   patches:
     - 0001-Add-headerpad_max_install_names-to-linker-arguments.patch
 
@@ -44,9 +44,12 @@ requirements:
     - setuptools-scm
   run:
     - python
-    - if: match(python, ">=3.13")
+    - if: match(python, ">=3.14")
+      then: pyyaml >=6.0.3
+    - if: match(python, "3.13.*")
       then: pyyaml-ft >=8.0.0
-      else: pyyaml >=5.2
+    - if: match(python, "<3.13")
+      then: pyyaml >=5.2
     - if: match(python, "<3.10")
       then: typing_extensions
 
