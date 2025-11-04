@@ -44,9 +44,12 @@ requirements:
     - setuptools-scm
   run:
     - python
-    - if: match(python, ">=3.13")
+    - if: match(python, ">=3.14")
+      then: pyyaml >=6.0.3
+    - if: match(python, "3.13.*")
       then: pyyaml-ft >=8.0.0
-      else: pyyaml >=5.2
+    - if: match(python, "<3.13")
+      then: pyyaml >=5.2
     - if: match(python, "<3.10")
       then: typing_extensions
 
