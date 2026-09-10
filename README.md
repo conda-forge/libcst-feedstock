@@ -3,11 +3,13 @@ About libcst-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/libcst-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/Instagram/LibCST
+Home: https://pypi.org/project/libcst
 
 Package license: MIT
 
-Summary: A concrete syntax tree with AST-like properties for Python 3.0 through 3.13 programs.
+Summary: A concrete syntax tree with AST-like properties for Python 3.0 through 3.15 programs.
+
+Development: https://github.com/Instagram/LibCST
 
 Documentation: https://libcst.readthedocs.io/
 
