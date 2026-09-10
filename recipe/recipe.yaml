@@ -3,6 +3,18 @@ schema_version: 1
 
 context:
   version: "1.9.0"
+  pytest_k: |-
+    not (
+      test_clean_roundtrip
+      or test_codegen_clean_matcher_classes
+      or test_codegen_clean_return_types
+      or test_codegen_clean_visitor_functions
+      or test_codemod_formatter_error_input
+      or test_gen_cache_0
+      or test_simple_class_types_0
+      or test_transform_roundtrip
+      or test_with_empty_cache
+    )
 
 package:
   name: libcst
@@ -19,7 +31,16 @@ build:
   script:
     env:
       SETUPTOOLS_SCM_PRETEND_VERSION: ${{ version }}
+      CARGO_PROFILE_RELEASE_STRIP: symbols
+      CARGO_PROFILE_RELEASE_LTO: fat
+      CARGO: cargo-auditable-wrapper.${{ "bat" if win else "sh" }}
     content:
+      - if: win
+        then:
+          - copy "%RECIPE_DIR%\cargo-auditable-wrapper.bat" "%BUILD_PREFIX%\Library\bin\"
+        else:
+          - cp "${RECIPE_DIR}/cargo-auditable-wrapper.sh" "${BUILD_PREFIX}/bin/"
+          - chmod 755 "${BUILD_PREFIX}/bin/cargo-auditable-wrapper.sh"
       - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
       - cd native/libcst
       - cargo-bundle-licenses --format=yaml --output=THIRDPARTY.yml
@@ -29,6 +50,7 @@ requirements:
     - ${{ compiler('rust') }}
     - ${{ stdlib('c') }}
     - cargo-bundle-licenses
+    - cargo-auditable
     - if: build_platform != target_platform
       then:
         - python
@@ -45,13 +67,14 @@ requirements:
   run:
     - python
     - if: match(python, ">=3.14")
-      then: pyyaml >=6.0.3
+      then:
+        - pyyaml >=6.0.3
     - if: match(python, "3.13.*")
-      then: pyyaml-ft >=8.0.0
+      then:
+        - pyyaml-ft >=8.0.0
     - if: match(python, "<3.13")
-      then: pyyaml >=5.2
-    - if: match(python, "<3.10")
-      then: typing_extensions
+      then:
+        - pyyaml >=5.2
 
 tests:
   - python:
@@ -90,8 +113,7 @@ tests:
         - hypothesmith
         - pytest-cov
     script:
-      - coverage run --source=libcst --branch -m pytest -vv --tb=long --color=yes --pyargs libcst -k "not ( test_clean_roundtrip or test_codegen_clean_matcher_classes or test_codegen_clean_return_types or test_codegen_clean_visitor_functions or test_codemod_formatter_error_input or test_gen_cache_0 or 
-        test_simple_class_types_0 or test_transform_roundtrip or test_with_empty_cache )"
+      - coverage run --source=libcst --branch -m pytest -vv --tb=long --color=yes --pyargs libcst -k "${{ pytest_k | replace('\n', ' ') }}"
       - coverage report --show-missing --skip-covered --fail-under=88
 
 about:
@@ -99,8 +121,9 @@ about:
   license_file:
     - LICENSE
     - native/libcst/THIRDPARTY.yml
-  summary: A concrete syntax tree with AST-like properties for Python 3.0 through 3.13 programs.
-  homepage: https://github.com/Instagram/LibCST
+  summary: A concrete syntax tree with AST-like properties for Python 3.0 through 3.15 programs.
+  homepage: https://pypi.org/project/libcst
+  repository: https://github.com/Instagram/LibCST
   documentation: https://libcst.readthedocs.io
 
 extra:
