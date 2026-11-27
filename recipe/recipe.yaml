@@ -27,7 +27,7 @@ source:
     - 0001-Add-headerpad_max_install_names-to-linker-arguments.patch
 
 build:
-  number: 2
+  number: 3
   script:
     env:
       SETUPTOOLS_SCM_PRETEND_VERSION: ${{ version }}
